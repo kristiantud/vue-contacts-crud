@@ -1,6 +1,7 @@
 
 <template>
-  <h2>App Component</h2>
+  <router-view/>
+  
 </template>
 
 <script>
