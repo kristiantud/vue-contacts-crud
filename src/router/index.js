@@ -5,6 +5,7 @@ import AddContact from '../views/AddContact.vue'
 import EditContact from '../views/EditContact.vue'
 import ViewContact from '../views/ViewContact.vue'
 import PageNotFound from '../views/PageNotFound.vue'
+
 const routes = [
 {
     path: '/',
