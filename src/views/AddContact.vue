@@ -41,7 +41,13 @@
             
           </form>
         </div>
+
+        <div class="col-md-4">
+          <img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="" class="contact-img">
+        </div>
       </div>
+      
+
     </div>
     
   </template>
