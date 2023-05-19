@@ -5,7 +5,7 @@
           <p class="h3 text-success fw-bold">Contact Manager
             <router-link to="/contacts/add" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> New</router-link>
           </p>
-          <p class="fst-italic">laskjdlkasjdlkasjdlaskjdlaskjdlaskjdlaskdjlaskdjalskdjasldkjasldkjasldkjasldkjaslkdjasldkj</p>
+          <p class="fst-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorum voluptate sit odio nisi, ducimus deserunt beatae saepe quo repellendus! Dignissimos repudiandae, adipisci autem ullam incidunt ut. Sit, tempore non?</p>
         
         <form>
           <div class="row">
