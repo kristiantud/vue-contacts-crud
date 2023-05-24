@@ -13,7 +13,7 @@
     <div class="container mt-3">
       <div class="row">
         <div class="col-md-4">
-          <form action="">
+          <form @submit.prevent="submitCreate()">
             <div class="mb-2">
               <input v-model="contact.name" type="text" class="form-control  my-2" placeholder="Name">
             </div>
@@ -33,9 +33,9 @@
               <input v-model="contact.title" type="text" class="form-control  my-2" placeholder="Title">
             </div>
             <div class="mb-2">
-              <select class="form-control" v-if="groups.length > 0">
+              <select v-model="contact.groupId" class="form-control" v-if="groups.length > 0">
                 <option value="">Select Group</option>
-                <option value="" v-for="group of groups" :key="group.id">{{ group.name }}</option>
+                <option  :value="group.id" v-for="group of groups" :key="group.id">{{ group.name }}</option>
               </select>
             </div> 
             <div class="mb-2">
@@ -46,7 +46,7 @@
         </div>
 
         <div class="col-md-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="" class="contact-img">
+          <img :src="contact.photo" alt="" class="contact-img">
         </div>
       </div>
       
@@ -80,8 +80,23 @@ import { ContactService } from '../services/ContactService'
         } catch (error){
           console.log(error);
         }
+      },
+      methods : {
+        submitCreate : async function (){ 
+          try {
+            let resp = await ContactService.createContact(this.contact);
+            if (resp) {
+              return this.$router.push('/'); // redirect to main page on successful creation
+            } else {
+              return this.$router.push('/contacts/add');
+            }
+          } catch (error){
+            console.log(error);
+          }
+        }
       }
     }
+    
   </script>
   
   
