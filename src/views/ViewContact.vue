@@ -11,16 +11,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="" class="contact-img-big">
+        <img :src="contact.photo" alt="" class="contact-img-big">
       </div>
       <div class="col-md-6">
         <ul class="list-group">
-          <li class="list-group-item">Name: <span class="fw-bold">{{ contactInfo.name }}</span></li>
-          <li class="list-group-item">Email: <span class="fw-bold">Email</span></li>
-          <li class="list-group-item">Mobile: <span class="fw-bold">Mobile</span></li>
-          <li class="list-group-item">Company:<span class="fw-bold">Company</span></li>
-          <li class="list-group-item">Title:<span class="fw-bold">Title</span></li>
-          <li class="list-group-item">Group: <span class="fw-bold">Group</span></li>
+          <li class="list-group-item">Name: <span class="fw-bold">{{ contact.name }}</span></li>
+          <li class="list-group-item">Email: <span class="fw-bold">{{ contact.email }}</span></li>
+          <li class="list-group-item">Mobile: <span class="fw-bold">{{ contact.mobile }}</span></li>
+          <li class="list-group-item">Company: <span class="fw-bold">{{ contact.company }}</span></li>
+          <li class="list-group-item">Title: <span class="fw-bold">{{ contact.title }}</span></li>
+          <li class="list-group-item">Group: <span class="fw-bold">{{ contact.groupId }}</span></li>
         </ul>
       </div>
     </div>
@@ -42,20 +42,30 @@
     name: 'ViewContact',
     data: function(){
       return {
-        contactInfo: null,
-        errorMessage: null
+        contact: {
+            name: "",
+            photo: "",
+            mobile: "",
+            email: "",
+            company: "",
+            title: "",
+            groupId: "",
+            
+          },
       }
     },
-    getData: async function(){
-      try {
-        let resp = await ContactService.getContact(contactId);
-        this.contactInfo = resp.data
-
-      } catch (error){
-        this.errorMessage = error;
-
+    created: async function (){
+        try {
+          let resp = await ContactService.getContact(this.$route.params.contactId);
+          if (resp){
+            this.contact = resp.data;
+          }
+        } catch (error){
+          console.log("error");
+        }
       }
-    }
+    
+    
   
   }
 </script>
