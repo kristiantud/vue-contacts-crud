@@ -15,7 +15,7 @@
       </div>
       <div class="col-md-6">
         <ul class="list-group">
-          <li class="list-group-item">Name: <span class="fw-bold">Name</span></li>
+          <li class="list-group-item">Name: <span class="fw-bold">{{ contactInfo.name }}</span></li>
           <li class="list-group-item">Email: <span class="fw-bold">Email</span></li>
           <li class="list-group-item">Mobile: <span class="fw-bold">Mobile</span></li>
           <li class="list-group-item">Company:<span class="fw-bold">Company</span></li>

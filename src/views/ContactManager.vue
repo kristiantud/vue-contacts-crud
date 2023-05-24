@@ -30,7 +30,7 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <p>loading</p>
+            <!-- <p>loading</p> -->
             <Spinner/>
             <!-- <NavBar/> -->
 
@@ -67,7 +67,7 @@
                   </ul>
                 </div>
                 <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
-                  <router-link to="/contacts/view/{{ contact.id }}" class="btn btn-warning my-1">
+                  <router-link :to="`/contacts/view/${ contact.id }`" class="btn btn-warning my-1">
                     <i class="fa fa-eye"></i>
                   </router-link>
                   <router-link to="/contacts/edit/:contactId" class="btn btn-primary my-1">
