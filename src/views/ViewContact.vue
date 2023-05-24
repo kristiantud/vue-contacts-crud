@@ -36,8 +36,27 @@
 </template>
 
 <script>
+  import { ContactService } from '../services/ContactService';
+
   export default {
-    name: 'ViewContact'
+    name: 'ViewContact',
+    data: function(){
+      return {
+        contactInfo: null,
+        errorMessage: null
+      }
+    },
+    getData: async function(){
+      try {
+        let resp = await ContactService.getContact(contactId);
+        this.contactInfo = resp.data
+
+      } catch (error){
+        this.errorMessage = error;
+
+      }
+    }
+  
   }
 </script>
 

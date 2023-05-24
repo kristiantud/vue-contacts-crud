@@ -1,5 +1,11 @@
-<template>
-    <h2>Spinner</h2>
+  <template>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img src="../assets/spinner.gif" alt="spinner" class="d-block m-auto">
+        </div>
+      </div>
+    </div>
     
   </template>
   
