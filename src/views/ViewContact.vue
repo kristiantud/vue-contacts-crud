@@ -20,7 +20,7 @@
           <li class="list-group-item">Mobile: <span class="fw-bold">{{ contact.mobile }}</span></li>
           <li class="list-group-item">Company: <span class="fw-bold">{{ contact.company }}</span></li>
           <li class="list-group-item">Title: <span class="fw-bold">{{ contact.title }}</span></li>
-          <li class="list-group-item">Group: <span class="fw-bold">{{ contact.groupId }}</span></li>
+          <li class="list-group-item">Group: <span class="fw-bold"> {{ group.name }}</span></li>
         </ul>
       </div>
     </div>
@@ -33,6 +33,7 @@
     
   </div>
 
+  
 </template>
 
 <script>
@@ -52,16 +53,32 @@
             groupId: "",
             
           },
+        group: {}
       }
     },
     created: async function (){
         try {
           let resp = await ContactService.getContact(this.$route.params.contactId);
-          if (resp){
-            this.contact = resp.data;
-          }
+          
+          
+          this.contact = resp.data;
+          
+          let groupRest = await ContactService.getGroup(this.contact);
+          this.group = groupRest.data;
+          
         } catch (error){
-          console.log("error");
+          console.log(error);
+        }
+      },
+      methods : {
+        getGroups : async function() {
+          try {
+            let resp = await ContactService.getAllGroups();
+            this.group = resp.data;
+
+          } catch (error) {
+            console.log(error);
+          }
         }
       }
     
