@@ -1,7 +1,7 @@
 
 
 body{
-    background-color: rgb(216, 215, 252) !important;
+    background-color: rgb(240, 244, 252) !important;
 }
 
 .contact-img{
@@ -11,4 +11,42 @@ body{
 
 .contact-img-big{
     width: 200px;
+}
+
+.view-span, .edit-span, .delete-span{
+    display: none;
+    visibility:hidden;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 500px){
+    .contact-img{
+        width: 225px;
+    }
+
+    .view-span, .edit-span, .delete-span{
+        display: inline-block;
+        font-family:'Courier New', Courier, monospace;
+        margin-left: 5px;
+        visibility: unset;
+        font-size: 12px;
+    }
+
+    .col-sm-4{
+        text-align: center;
+    }
+
+    .col-sm-7{
+        margin-top: 15px;
+    }
+
+    .col-sm-1{
+        margin-top: 15px;
+    }
+
+    .card-btn{
+        width: 125px;
+    }
+    
+
 }

@@ -67,14 +67,14 @@
                   </ul>
                 </div>
                 <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
-                  <router-link :to="`/contacts/view/${ contact.id }`" class="btn btn-warning my-1">
-                    <i class="fa fa-eye"></i>
+                  <router-link :to="`/contacts/view/${ contact.id }`" class="btn btn-warning my-1 card-btn" >
+                    <i class="fa fa-eye"><span class="view-span">View</span></i>
                   </router-link>
-                  <router-link :to="`/contacts/edit/${ contact.id }`" class="btn btn-primary my-1">
-                    <i class="fa fa-pen"></i>
+                  <router-link :to="`/contacts/edit/${ contact.id }`" class="btn btn-primary my-1 card-btn">
+                    <i class="fa fa-pen"><span class="edit-span" >Edit</span></i>
                   </router-link>
-                  <button class="btn btn-danger my-1" @click="deleteContact(contact.id)">
-                    <i class="fa fa-trash"></i>
+                  <button class="btn btn-danger my-1 card-btn" @click="deleteContact(contact.id)">
+                    <i class="fa fa-trash"><span class="delete-span">Delete</span></i>
                   </button>
                 </div>
               </div>
