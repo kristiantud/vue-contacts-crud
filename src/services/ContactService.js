@@ -3,7 +3,7 @@ import axios from "axios";
 
 export class ContactService {
     // static serverURL = `http://localhost:9000`;
-    static serverURL = `https://my-json-server.typicode.com/kristiantud/vue-contacts-crud`;
+    static serverURL = `https://far-able-blob.glitch.me`; // glitch.com running the json-server we created
 
     static getAllContacts(){
         let dataURL = `${this.serverURL}/contacts`;
