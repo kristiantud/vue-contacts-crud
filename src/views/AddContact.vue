@@ -2,8 +2,8 @@
     <div class="container mt-3">
       <div class="row">
         <div class="col">
-          <p class="h3 text-success fw-bold">Add Contact</p>
-          <p class="fst-italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab reprehenderit libero earum sit enim optio officiis, praesentium mollitia minima accusamus, architecto minus error exercitationem ullam facere dolorum inventore accusantium dolor?</p>
+          <p class="h3 text-primary fw-bold">Add Contact</p>
+          <p class="fst-italic">Add a contact by filling out the following fields:</p>
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
               </select>
             </div> 
             <div class="mb-2">
-              <input type="submit" class="btn btn-success" value="Create">
+              <input type="submit" class="btn btn-primary" value="Create">
             </div> 
             
           </form>

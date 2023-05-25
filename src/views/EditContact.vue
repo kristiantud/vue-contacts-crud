@@ -2,8 +2,8 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col">
-        <p class="h3 text-success fw-bold">Edit Contact</p>
-        <p class="fst-italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab reprehenderit libero earum sit enim optio officiis, praesentium mollitia minima accusamus, architecto minus error exercitationem ullam facere dolorum inventore accusantium dolor?</p>
+        <p class="h3 text-primary fw-bold">Edit Contact</p>
+        <p class="fst-italic">Currently editing {{ contact.name }}'s profile.</p>
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@
             </select>
           </div> 
           <div class="mb-2">
-            <input type="submit" class="btn btn-success" value="Update" >
+            <input type="submit" class="btn btn-primary" value="Update" >
           </div> 
           
         </form>

@@ -2,8 +2,8 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col">
-        <p class="h3 text-success fw-bold">View Contact</p>
-        <p class="fst-italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab reprehenderit libero earum sit enim optio officiis, praesentium mollitia minima accusamus, architecto minus error exercitationem ullam facere dolorum inventore accusantium dolor?</p>
+        <p class="h3 text-primary fw-bold">View Contact</p>
+        <p class="fst-italic">Currently viewing {{ contact.name }}'s profile.</p>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
 
     <div class="row mt-3">
       <div class="col">
-        <router-link to="/" class="btn btn-success"><i class="fa fa-arrow-circle-left"></i> Back</router-link>
+        <router-link to="/" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</router-link>
       </div>
     </div>
     

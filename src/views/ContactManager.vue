@@ -2,10 +2,10 @@
     <div class="container mt-3">
       <div class="row">
         <div class="col">
-          <p class="h3 text-success fw-bold">Contact Manager
-            <router-link to="/contacts/add" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> New</router-link>
+          <p class="h3 text-primary fw-bold">Contact Manager
+            <router-link to="/contacts/add" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> New</router-link>
           </p>
-          <p class="fst-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolorum voluptate sit odio nisi, ducimus deserunt beatae saepe quo repellendus! Dignissimos repudiandae, adipisci autem ullam incidunt ut. Sit, tempore non?</p>
+          <p class="fst-italic">Currently displaying all contacts in the database. Create a new contact entry by clicking on the 'New' button. View, Edit, or Delete a contact entry by clicking one of the buttons at the right hand side of any contact card.</p>
         
         <form>
           <div class="row">
@@ -53,7 +53,7 @@
     <div class="container mt-3" v-if="contacts.length > 0">
       <div class="row">
         <div class="col-md-6" v-for="contact of contacts" :key="contact">
-          <div class="card my-2 list-group-item-success shadow-lg" >
+          <div class="card my-2 list-group-item-primary shadow-lg" >
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col-sm-4">
