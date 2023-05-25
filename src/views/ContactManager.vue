@@ -113,11 +113,14 @@
       methods: {
         deleteContact: async function(contactId){
           try {
+            this.loading = true;
             let resp = await ContactService.deleteContact(contactId);
-            // console.log("clicked!!" + contactId);
-            return this.$router.push('/'); // redirect to main page on successful creation
-            
-            
+            if (resp){
+              let resp = await ContactService.getAllContacts();
+              this.contacts = resp.data;
+              this.loading = false
+            }
+
           } catch (error){
             console.log(error);
           }

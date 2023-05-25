@@ -7,11 +7,25 @@
       </div>
     </div>
   </div>
+  
+  <!-- spinner -->
+  <div v-if="loading">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <!-- <p>loading</p> -->
+          <Spinner/>
+          <!-- <NavBar/> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="container mt-3">
     <div class="row">
       <div class="col-md-4">
-        <form action="">
+        <form action="" @submit.prevent="updateContact()">
           <div class="mb-2">
             <input v-model="contact.name" type="text" class="form-control  my-2" placeholder="Name">
           </div>
@@ -37,7 +51,7 @@
             </select>
           </div> 
           <div class="mb-2">
-            <input type="submit" class="btn btn-success" value="Update" @click="updateContact()">
+            <input type="submit" class="btn btn-success" value="Update" >
           </div> 
           
         </form>
@@ -68,17 +82,19 @@
             groupId: "",
             
           },
-        groups: {}
+        groups: {},
+        loading: false
       }
     },
     created: async function (){
         try {
-          console.log(this.$route.params.contactId);
+          this.loading = true;
           let resp = await ContactService.getContact(this.$route.params.contactId);
           this.contact = resp.data;
           
           let groupRest = await ContactService.getAllGroups();
           this.groups = groupRest.data;
+          this.loading = false;
           
         } catch (error){
           console.log(error);
