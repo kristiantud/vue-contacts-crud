@@ -43,4 +43,10 @@ export class ContactService {
         return axios.get(dataURL);
     }
 
+    static getSearch(keyword){
+        let dataURL = `${this.serverURL}/contacts?q=${keyword}`
+
+        return axios.get(dataURL);
+    }
+
 }

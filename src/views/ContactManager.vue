@@ -7,15 +7,15 @@
           </p>
           <p class="fst-italic">Currently displaying all contacts in the database. Create a new contact entry by clicking on the 'New' button. View, Edit, or Delete a contact entry by clicking one of the buttons at the right hand side of any contact card.</p>
         
-        <form>
+        <form @submit.prevent="searchContact(nameToSearch)">
           <div class="row">
             <div class="col-md-6">
               <div class="row">
                 <div class="col">
-              <input type="text" class="form-control" placeholder="Search Name">
+              <input v-model="nameToSearch" type="text" class="form-control" placeholder="Search Name">
             </div>
             <div class="col">
-                <input type="submit" class="btn btn-outline-dark">
+                <input type="submit" class="btn btn-outline-dark" >
             </div>
               </div>
             </div>
@@ -24,6 +24,7 @@
         </div>
       </div>
     </div>
+
 
     <!-- spinner -->
     <div v-if="loading">
@@ -45,6 +46,19 @@
         <div class="row">
           <div class="col">
             <p class="h3 text-danger fw-bold"> {{ errorMessage }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" v-if="!searchFound">
+      <div class="row">
+        <div class="col">
+          <h4 class="mt-4 text-danger">User does not exist in the database.</h4>
+          <div class="row mt-3">
+            <div class="col">
+              <button @click="backToHome()" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</button>
+            </div>
           </div>
         </div>
       </div>
@@ -96,7 +110,9 @@
         return{
           loading: false,
           contacts: [],
-          errorMessage: null
+          errorMessage: null,
+          searchFound: true,
+          nameToSearch: ""
         }
       },
       created: async function(){
@@ -123,6 +139,32 @@
 
           } catch (error){
             console.log(error);
+          }
+        },
+        searchContact: async function(keyword) {
+          this.loading = true;
+          let resp = await ContactService.getSearch(keyword);
+          if (resp.data.length > 0){
+            this.contacts = resp.data;
+            this.searchFound = true;
+            this.loading = false;
+            console.log(this.contacts);
+          } else {
+            this.searchFound = false;
+            this.contacts = {};
+            this.loading = false;
+          }
+        },
+        backToHome: async function (){
+          try {
+            this.loading = true;
+            let resp = await ContactService.getAllContacts();
+            this.contacts = resp.data;
+            this.loading = false;
+            this.searchFound = true;
+          }catch (error){
+            this.errorMessage = error;
+            this.loading = false;
           }
         }
       }
